@@ -1,0 +1,23 @@
+<%- include("partials/header")-%>
+
+<h1>Home</h1>
+<p><%= startingContent %></p>
+
+<% postContents.forEach(post => { %>
+    <div>
+        <h3><%= post.title %></h3>
+        <% if (post.postBody.length > 99) { %>
+            <p>
+                <%= post.postBody.substring(0, 100) + " ..." %>
+                <a href="/posts/<%=post._id%>">Read More</a>
+            </p>
+        <% } else { %>
+            <p>
+                <%= post.postBody %>
+            </p>
+        <% } %>
+        
+    </div>
+<% }); %>
+
+<%- include("partials/footer")-%>
